@@ -51,31 +51,20 @@ def excel_to_dict(path):
 
     read = pd.read_excel(path)
     pd_headers = read.columns.values.tolist()
-    #print(pd_headers)
-    '''the unique methods avoid that the dropna() drops the entire row
-    cleaning the table of nan and putting it into a dictionary'''
-
-    '''the function unique gives an array as output value
-   that is why it is better to append the values into a list into a list'''
 
     for element in pd_headers:
 
         clean = read[element].dropna().unique().tolist()
         dictionary[element] = clean
 
-    '''we are inverting the keys and the values so 
-    that search of the  right lemma is faster and more efficient
-    keys = wrong lemmas
-    values = right lemmas
-    '''
     for k, v in dictionary.items():
         for vi in v:
             new_dict[vi] = k
 
     return new_dict
 
-correct_lemmas = excel_to_dict("Correct_Lemmas/Correct_lemmasLat.xlsx")
-names = excel_to_dict("StopwordsNames_list/EsLatNames.xlsx")
+correct_lemmas = excel_to_dict("Path to excel file of correct lemmas")
+names = excel_to_dict("Path to excel file of Latin and Spanish names")
 
 
 def normalize(text: str, stopwords: set) -> list:
@@ -108,9 +97,6 @@ def fixing_lemmas(listLexLem: list,correctList: list ) -> list:
     new_lemmas =[]
 
     for lex, lemma in listLexLem:
-        # the function get will check the if lemma is present in the keys
-        # if True it will get the values (the right lemma),
-        # if False it will get the lemma (second element of the tuple)
         new_lemmas.append((lex, correctList.get(lemma, lemma)))
 
     return new_lemmas
