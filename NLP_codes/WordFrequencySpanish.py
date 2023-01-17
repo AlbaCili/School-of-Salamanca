@@ -40,31 +40,20 @@ def excel_to_dict(path):
 
     read = pd.read_excel(path)
     pd_headers =read.columns.values.tolist()
-    #print(pd_headers)
-    '''the unique methods avoid that the dropna() drops the entire row
-    cleaning the table of nan and putting it into a dictionary'''
-
-    '''the function unique gives an array as output value
-   that is why it is better to append the values into a list into a list'''
-
+   
     for element in pd_headers:
 
         clean = read[element].dropna().unique().tolist()
         dictionary[element] = clean
 
-    '''we are inverting the keys and the values so 
-    that search of the  right lemma is faster and more efficient
-    keys = wrong lemmas
-    values = right lemmas
-    '''
     for k, v in dictionary.items():
         for vi in v:
             new_dict[vi] = k
 
     return new_dict
 
-correct_lemmas = excel_to_dict("Correct_Lemmas/correctLemmas_es.xlsx")
-names = excel_to_dict("StopwordsNames_list/EsLatNames.xlsx")
+correct_lemmas = excel_to_dict("Excel path to correct Lemmas")
+names = excel_to_dict("Excel path file to Latin/Spanish names")
 
 #print(correct_lemmas)
 #print(names)
@@ -115,23 +104,16 @@ def fixing_lemmas(listLexLem: list,correctList: list ) -> list:
     new_lemmas =[]
 
     for lex, lemma in listLexLem:
-        # the function get will check the if lemma is present in the keys
-        # if True it will get the values (the right lemma),
-        # if False it will get the lemma (second element of the tuple)
         new_lemmas.append((lex, correctList.get(lemma, lemma)))
-
-
+        
     return new_lemmas
 
-
-#calculating the conditional frequency distribution of the tuples (lemma, lexemes)
 def CondFreqDib(tuple_list: tuple, most_com: int) -> list:
 
     dictionary = defaultdict(list)
 
     cfd_lemmas = nltk.ConditionalFreqDist(tuple_list) # calculating the cfd
-    lemmas = sorted(cfd_lemmas.conditions()) # getting the lemmas and sorting
-                                             # them in alphabetical order
+    lemmas = sorted(cfd_lemmas.conditions())
 
     for lemma in lemmas:
         sum_values = sum(cfd_lemmas[lemma].values()) # summing up all their frequencies
@@ -181,9 +163,9 @@ for file in files:
         new_LexLemma.extend(fix2)
 
 
-LemmaLex = [(lemma,lex) for lex,lemma in new_LexLemma if lemma.islower()] #changing the position of lemmas on index O,                                                                     # position of lexemes on index 1 and filtering the list from names
-cfd = CondFreqDib(LemmaLex,100)# calculating the conditional frequency distribution
-df = cfd_DataFrame(cfd) #mapping it into a data frame
+LemmaLex = [(lemma,lex) for lex,lemma in new_LexLemma if lemma.islower()]                                                              
+cfd = CondFreqDib(LemmaLex,100)
+df = cfd_DataFrame(cfd) 
 
 datatoexcel = pd.ExcelWriter('name of the stylesheet', engine = "xlsxwriter")
 df.to_excel(datatoexcel)
