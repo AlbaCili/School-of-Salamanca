@@ -91,7 +91,7 @@ def normalize(text: str, stopwords: set) -> list:
 
     return no_punct
 
-#this function fixes the wrong lemmatization from the lemmatizer
+
 def fixing_lemmas(listLexLem: list,correctList: list ) -> list:
 
     new_lemmas =[]
@@ -156,9 +156,9 @@ for file in files:
 
 
 
-LemmaLex = [(lemma,lex) for lex,lemma in new_LexLemma if lemma.islower()] #changing the position of lemmas on index O,                                                                     # position of lexemes on index 1 and filtering the list from names
-cfd = CondFreqDib(LemmaLex,100)# calculating the conditional frequency distribution
-df = cfd_DataFrame(cfd) #mapping it into a data frame
+LemmaLex = [(lemma,lex) for lex,lemma in new_LexLemma if lemma.islower()]                                                                     
+cfd = CondFreqDib(LemmaLex,100)
+df = cfd_DataFrame(cfd) 
 
 datatoexcel = pd.ExcelWriter('write name of the stylesheet file', engine = "xlsxwriter")
 df.to_excel(datatoexcel)
