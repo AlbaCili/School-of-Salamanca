@@ -1,2 +1,2 @@
-# School-of-Salamanca
-NLP application on Latin/Spanish 16th-17th century text corpora
+# School-of-Salamanca-word-frequencies
+Word frequencies in the Digital Collection of Sources in the Works of the School of Salamanca.
