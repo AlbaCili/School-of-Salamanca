@@ -7,5 +7,5 @@ These early modern texts  serve to analyze the history of the Salamanca School's
 
 This objective is achieved through the use of NLP applications, such as lemmatization and frequency distribution of lemmas, extracted from 16th-17th century Latin and Spanish texts. 
 
-This repository displays the results, namely, 100 most common lemmas, obtained from this applied methodology, as long as the list of stop words and corrected Latin/Spanish names (used in the normalization process), the text formats used for before mentioned NLP tasks.
+This repository displays the results, namely, 100 most common lemmas, obtained from this applied methodology, as long as the list of stop words and corrected Latin/Spanish names, which were used in the normalization process, the used text formats and python codes, through which the before mentioned  data collection was processed
  
