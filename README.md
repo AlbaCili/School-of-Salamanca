@@ -21,7 +21,7 @@ This license is valid for the following folders:
 4. Results
 5. Correct_Lemmas-EsLa_names
 
-The NLP_codes folder is protectd under CC Copyright license (for more information check the pdf file Work_Copyrights.pdf  in the branch word-frequency, folder NLP_codes)
+**_The NLP_codes_ folder is protectd under _CC Copyright license_. For more information check the pdf file *Work_Copyrights.pdf* in the *NLP_codes*  folder, located in the *word-frequency* branch.**
           
 Copyright (c) 2023 Cindy Rico Carmona
 
