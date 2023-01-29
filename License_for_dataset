@@ -1,12 +1,14 @@
 MIT License
 
-This license is valid for the following dateset: 
+This license is valid for the following folders: 
 
-1. Spanish/Latin stop words list
-2. Spanish/Latin names list 
-3. Results of Spanish/Latin corpus
+1. stopwords
+2. Works-spanish
+3. Works-latin
+4. Results
+5. Correct_Lemmas-EsLa_names
 
-The python Codes used are protectd under CC Copyright license.
+The NLP_codes folders is protectd under CC Copyright license (for more information check the pdf file Work_Copyrights.pdf in the NLP_codes)
           
 Copyright (c) 2023 Cindy Rico Carmona
 
