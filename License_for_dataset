@@ -2,13 +2,12 @@ MIT License
 
 This license is valid for the following dateset: 
 
-+ Spanish/Latin stop words list
-+ Spanish/Latin names list 
-+ Results of Spanish/Latin corpus
+1. Spanish/Latin stop words list
+2. Spanish/Latin names list 
+3. Results of Spanish/Latin corpus
+
+The python Codes used are protectd under CC Copyright license.
           
-
-
-
 Copyright (c) 2023 Cindy Rico Carmona
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
